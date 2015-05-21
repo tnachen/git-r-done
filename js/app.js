@@ -60,9 +60,12 @@ $(function() {
 
           if (t.name == "basicdock") { t.name = "marathon"; }
 
+	  if (t.name.indexOf("marathon") > -1) { t.name = "marathon"; }
+	  if (t.name.indexOf("swarm") > -1) { t.name = "swarm"; }
+
           if (!_.has(acc, t.name)) { acc[t.name] = 0; }
 
-          if (_.indexOf(["marathon", "spark"], t.name) >= 0) {
+          if (_.indexOf(["swarm", "marathon", "spark"], t.name) >= 0) {
             acc[t.name] += 1;
           }
 
@@ -222,6 +225,7 @@ $(function() {
 
   var selectors = {
     total: document.querySelector(".total-tasks .value"),
+    swarm: document.querySelector(".swarm-tasks .value"),
     marathon: document.querySelector(".marathon-tasks .value"),
     spark: document.querySelector(".spark-tasks .value")
     // cassandra: document.querySelector(".cassandra-tasks .value")

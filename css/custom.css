@@ -28,6 +28,10 @@ rect {
   stroke-width: 10px;
 }
 
+rect.swarm {
+  fill: #4d9cd7;
+}
+
 rect.marathon {
   fill: #9351e5;
 }
@@ -73,17 +77,21 @@ rect.spark {
 }
 
 .total-tasks {
-  margin-top: 93px;
+  margin-top: 43px;
   margin-bottom: 50px;
 }
 
 
-
+.swarm-tasks .value,
 .marathon-tasks .value,
 .spark-tasks .value,
 .cassandra-tasks .value {
   font-size: 64px;
   line-height: 76px;
+}
+
+.swarm-tasks .value {
+  color: #4d9cd7;
 }
 
 .marathon-tasks .value {
@@ -99,6 +107,7 @@ rect.spark {
 }
 
 
+.swarm-tasks .description,
 .marathon-tasks .description,
 .spark-tasks .description,
 .cassandra-tasks .description {
