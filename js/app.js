@@ -62,6 +62,7 @@ $(function() {
 
 	  if (t.name.indexOf("marathon") > -1) { t.name = "marathon"; }
 	  if (t.name.indexOf("swarm") > -1) { t.name = "swarm"; }
+          if (t.name.indexOf("spark") > -1) { t.name = "spark"; }
 
           if (!_.has(acc, t.name)) { acc[t.name] = 0; }
 
