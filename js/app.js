@@ -58,10 +58,18 @@ $(function() {
 
           if (t.state != "TASK_RUNNING") { return acc; }
 
-          if (t.name == "basicdock") { t.name = "marathon"; }
-
+	  // if it's a framework, tag as marathon
+	  t.labels.forEach(function(entry) {
+		  if (entry['key'] == "DCOS_PACKAGE_IS_FRAMEWORK" && entry['value'] == 'true') {
+		      t.name = "marathon";
+		  }
+		  if (entry['key'] == "SWARM_CONTAINER_NAME") {
+		      t.name = "swarm"
+		  }
+	  });
 	  if (t.name.indexOf("marathon") > -1) { t.name = "marathon"; }
-	  if (t.name.indexOf("swarm") > -1) { t.name = "swarm"; }
+	  else if  (t.name.indexOf("swarm") > -1) { t.name = "swarm"; }
+	  else { t.name = "spark"; }
 
           if (!_.has(acc, t.name)) { acc[t.name] = 0; }
 
